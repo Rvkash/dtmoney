@@ -10,9 +10,6 @@ interface NewTransactionModal {
   onRequestClose:  () => void;
 }
 
-interface RadioBoxProps {
-  isActive: boolean;
-}
 
 export function NewTransactionModal({ isOpen, onRequestClose}: NewTransactionModal){
     const [ type, setType] = useState('deposit');
@@ -49,6 +46,7 @@ export function NewTransactionModal({ isOpen, onRequestClose}: NewTransactionMod
           type="button"
           onClick={() => { setType('deposit'); }}
           isActive={type === 'deposit'}
+          activeColor="green"
           >
             <img src={Income} alt="Entrada" />
             <span>Entrada</span>
@@ -58,6 +56,8 @@ export function NewTransactionModal({ isOpen, onRequestClose}: NewTransactionMod
           type="button"
           onClick={() => { setType('withdraw'); }}
           isActive={type === 'withdraw'}
+          activeColor="red"
+
           >
             <img src={Outcome} alt="Saida" />
             <span>Saida</span>
